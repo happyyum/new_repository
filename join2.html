@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>furniture.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Nanum+Myeongjo:wght@400;700&family=Do+Hyeon&family=Gowun+Dodum&family=Gowun+Batang&display=swap" rel="stylesheet">
+    <style>
+        body {font-family: 'Times New Roman', Times, serif;}
+
+        #pong{
+            width:800px;
+            margin: 0 auto;	}
+        
+        header {
+	        width: 100%;
+	        height: 150px;
+            background-color: #eee7d0f1;
+            background-image: url(로고.png); }
+        header a {
+            color: transparent;
+            font-size: 100px;
+            text-align: center;     
+        }
+
+        nav {
+            width: 800px;
+            clear: both;
+            padding-bottom: 30px; 
+            padding-top: 0px; }
+        nav img{float: right;}
+        .search-box {
+            float: right;
+            display: none; 
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        aside {
+            float: left;  
+            width: 100px; 
+            margin-top: 5px;
+            padding-right: 80px; 
+        }
+        aside ul li a{text-decoration: none; color: black;}
+        aside ul li {list-style-type: none; font-size: 20px; padding-bottom: 10px;}
+        #li {font-weight: bold; font-size: 20px; padding-bottom: 30px;}
+
+        section {
+            float: right;
+            width: 600px;
+            padding-top: 0px; padding-left: 0px;  padding-bottom: 8%;
+        }
+        section article {
+           align-content: center;
+	        width:560px;
+        	height:600px;
+            margin-top: 15px; padding: 5px;
+            border: 1px solid #ccc;	
+        }
+
+        #login {padding: 50px;
+        font-family:'Gowun Dodum', sans-serif;}
+
+        footer{
+            clear: both;
+            width: 800px;
+            margin-bottom: 0;
+            background-color: antiquewhite;
+            color: rgb(99, 99, 99);
+            text-align: right;
+            padding: 3px;
+        }
+        footer p{margin-right: 50px;}
+
+        #etc{border: none;}
+
+    </style>
+
+</head>
+<body>   
+    
+    <div id="pong">
+        <header><a href="first1.html">mainpagemainpage</a>
+        </header>
+
+        <nav>
+           <a id="search" href="#"><img src="찾기.png" alt="검색"></a>
+            <a href="#"><img src="회원가입.png" alt="회원정보"></a>
+            <a href="#"><img src="장바구니.png" alt="장바구니"></a>
+        
+            <div class="search-box" id="searchBox">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+                </div>
+                <script>
+                document.getElementById('search').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    toggleSearchBox();
+                });
+        
+                function toggleSearchBox() {
+                    const searchBox = document.getElementById('searchBox');
+                    if (searchBox.style.display === 'none' || searchBox.style.display === '') {
+                        searchBox.style.display = 'block';
+                    } else {
+                        searchBox.style.display = 'none';
+                    }
+                }
+                </script>
+        </nav>
+           
+    
+        <aside>
+               <ul>
+                <li id="li">Categories</li>
+                <li><a href="all.html">All</a></li>
+                <li><a href="sofa.html">Sofas</a></li>
+                <li><a href="table.html">Tables</a></li>
+                <li><a href="chair.html">Chairs</a></li>
+                <!-- <li><a href="ready.html">etc</a></li> -->
+                <li><id="etc"; button type="button" onclick="alert('죄송합니다. 페이지를 준비중입니다.')">etc</button></li>
+            </ul>
+        </aside>
+
+
+        <section>
+            <article>             
+                <div id="login">
+                 <form name="myForm" action="input.jsp" method="post"
+                 onsubmit="return submit_chk(this)";>
+                
+                아이디* <input type="text" id="userid"></br><br>
+                비밀번호* <input type="password" id="userpw"><br><br>
+                비밀번호 확인* <input type="password" id="usercpw"><br><br>
+                비밀번호 확인 질문* <select id="qpw">
+                    <option value="option1">*가장 좋아하는 캐릭터 이름은?</option>
+                    <option value="option1">*기억에 남는 추억의 장소는?</option>
+                    <option value="option1">*다시 태어나면 되고 싶은 것은?</option> </select><br><br>
+                비밀번호 확인 답변* <input id="cqpw"><br><br>
+                이름* <input id="username"><br><br>
+                주소* <input id="useradd"><br><br>
+                휴대전화* <input id="usertel"><br><br>
+                이메일* <input id="useremail"><br><br>  
+                
+                
+                <button onclick="submit">가입하기</button>
+                    </form>
+                </div>
+                
+             <script>
+            document.getElementById("login").style.backgroundColor="#eee7d0f1"
+
+            document.getElementById("userid").placeholder="알파벳+숫자 형식으로 입력";
+            document.getElementById("userpw").placeholder="알파벳 5-10자 입력";
+            document.getElementById("username").placeholder="한글로 입력";
+            document.getElementById("usertel").placeholder="010-0000-0000, 숫자만 입력";
+            document.getElementById("useremail").placeholder="email@email.com";
+
+            function submit_chk(myForm){
+            let reg_id = /^[a-zA-Z]+\d{1,10}$/;
+            let reg_pw = /^[a-zA-Z]{5,10}$/;   
+            let reg_cpw = /^[a-zA-Z]{5,10}$/;   
+            let reg_name = /[가-힣]/; 
+            let reg_tel = /^010\d{3,4}\d{4}$/;
+            let reg_email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      
+            var id = myForm.userid;
+            var pw = myForm.userpw;
+            var cpw = myForm.usercpw;
+            var name = myForm.username;
+            var tel = myForm.usertel;
+            var email = myForm.useremail;
+
+            var result1 = reg_id.test(id.value); 
+            var result2 = reg_pw.test(pw.value);
+            var result3 = reg_name.test(name.value);
+            var result4 = reg_tel.test(tel.value);
+            var result5 = reg_email.test(email.value);
+            
+
+            if(!result1){
+                alert("아이디 입력 오류")
+                id.value="";
+                id.focus();
+                return false;
+            } else if(!result2){
+                alert("비밀번호 입력 오류")
+                pw.value="";
+                pw.focus();
+                return false;
+            }
+            else if(pw !== cpw){
+                alert("비밀번호 불일치")
+                cpw.value="";
+                cpw.focus();
+                return false;
+            }
+            else if(!result3){
+                alert("이름 입력 오류")
+                name.value="";
+                name.focus();
+                return false;
+            }
+            else if(!result4){
+                alert("전화번호 입력 오류")
+                tel.value="";
+                tel.focus();
+                return false;
+            }
+            else if(!result5){
+                alert("이메일 입력 오류")
+                email.value="";
+                email.focus();
+                return false;
+            }
+
+            if (id === "" || pw === "" ||cpw === "" ||tel === "" ||email === ""|| name === "" ){
+                alert("빈칸을 채워주세요!");
+                return false;
+            }
+        }
+      
+     
+
+        
+        
+        
+        </script>
+      
+                
+
+            </article>
+              
+        </section>
+       
+
+        <footer>
+            <p>Copyright (c) 2024 Web Shop </p>
+        </footer>
+
+    </div>
+</body>
+</html>
